@@ -1,0 +1,3 @@
+Battery percentage : 52
+Power plugged in : False
+1:27:45
