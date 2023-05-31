@@ -1,0 +1,39 @@
+#used_colors_in_project {
+  /* main */
+  color: #335e96;
+  /* shadowed main */
+  color: #122a4a;
+  /* warning */
+  color: #991506;
+  /* info */
+  color: #809624;
+  /* shadowed info */
+  color: #404a15;
+  /* background */
+  color: #303030;
+  /* lighter background */
+  color: #505050;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: 'Monomaniac One', sans-serif;
+  margin: 0;
+}
+
+@media (max-width: 650px) {
+  .app {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+}

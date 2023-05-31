@@ -83,7 +83,7 @@ else
 
 function draw_quote()
 {
-    number = Math.floor(Math.random()*num_of_quotes);
+    let number = Math.floor(Math.random()*num_of_quotes);
     localStorage.setItem("num", number);
     setTimeout(() => {  show_quote(); }, 20);
 }
