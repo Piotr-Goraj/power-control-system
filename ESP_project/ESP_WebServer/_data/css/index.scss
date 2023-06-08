@@ -1,6 +1,7 @@
+@import 'colors';
 @font-face {
   font-family: MonomaniacOne;
-  src: url("../fonts/MonomaniacOne-Regular.ttf");
+  src: url('../fonts/MonomaniacOne-Regular.ttf');
 }
 
 html {
@@ -8,8 +9,8 @@ html {
 }
 
 body {
-  background-color: #303030;
-  color: #dedede;
+  background-color: $background-color;
+  color: $font-color;
   font-family: 'Monomaniac One';
   margin: 0;
 }
@@ -21,5 +22,5 @@ img {
 
 h1 {
   font-size: 3rem;
-  color: #dedede;
+  color: $font-color;
 }

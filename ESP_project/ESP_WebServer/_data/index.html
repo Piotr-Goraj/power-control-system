@@ -12,78 +12,76 @@
       content="width=device-width, initial-scale=1.0"
     />
 
-    <title>PAG - engineering thesis</title>
+    <title>Power management</title>
 
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap"
-      rel="stylesheet"
-    />
-
+    <!-- BEM & SMACSS metodology -->
+    <!-- base styles -->
     <link
       rel="stylesheet"
       href="./css/index.css"
       type="text/css"
     />
+    <!-- layout styles -->
     <link
       rel="stylesheet"
-      href="./css/mobile.css"
+      href="./css/layouts.css"
       type="text/css"
     />
+    <!-- modules styles -->
     <link
       rel="stylesheet"
-      href="./css/shared.css"
+      href="./css/modules.css"
+      type="text/css"
+    />
+    <!-- states styles -->
+    <link
+      rel="stylesheet"
+      href="./css/states.css"
       type="text/css"
     />
   </head>
 
   <body>
-    <!-- navbar for mobile devices -->
-    <div id="navbar">
-      <div>
-        <a
-          href="index.html"
-          class="navbar__logo"
-        >
-          <img
-            src="img/logo_power_management.png"
-            alt="P.A.G. logo"
-        /></a>
-        <button class="toggle-button">
-          <span class="toggle-button__bar"></span>
-          <span class="toggle-button__bar"></span>
-          <span class="toggle-button__bar"></span>
-        </button>
-      </div>
+    <div class="top-bar">
+      <a
+        href="./index.html"
+        class="top-bar__logo"
+      >
+        <img
+          src="images/logo_power_management.png"
+          alt="P.A.G. logo"
+      /></a>
+      <button class="toggle-button">
+        <span class="toggle-button__bar"></span>
+        <span class="toggle-button__bar"></span>
+        <span class="toggle-button__bar"></span>
+      </button>
     </div>
 
-    <div class="app">
-      <div id="logo">
-        <img src="img/PG_logo.png" />
-        <h1>Piotr A. Goraj</h1>
-      </div>
+    <div class="app-wrapper">
+      <header class="header-wrapper">
+        <div class="header__logo">
+          <div class="header__img">
+            <img src="./images/PG_logo.png" />
+          </div>
+          <h1 class="header__name">
+            Piotr A. <br />
+            Goraj
+          </h1>
+        </div>
+        <div class="header__time">
+          <div class="time__hour">00:00:00</div>
+          <div class="time__date">31.12.2023</div>
+        </div>
+      </header>
 
-      <div id="content-wrapper">
-        <div id="content-wrapper__buttons">
-          <div class="content-wrapper__button">Previous quote</div>
-          <div class="content-wrapper__button">Next quote</div>
-        </div>
-        <div id="content-wrapper__content">
-          Quote: lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-          lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-          <br />
-          <br />
-          Author: lorem ipsum lorem ipsum
-        </div>
-      </div>
+      <nav class="navbar">
+        <div class="nav-btn yellow"><a>Main</a></div>
+        <div class="nav-btn"><a>Power</a></div>
+        <div class="nav-btn"><a>Cooling</a></div>
+        <div class="nav-btn red"><a>Analysys</a></div>
+        <div class="nav-btn red"><a>Settings</a></div>
+      </nav>
     </div>
   </body>
 </html>

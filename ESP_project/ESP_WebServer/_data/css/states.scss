@@ -1,0 +1,20 @@
+/* prefiks -is */
+@import 'colors';
+
+.navbar {
+  .nav-btn:hover,
+  .nav-btn:active {
+    background-color: $primary-color--shadowed;
+    cursor: pointer;
+  }
+
+  .yellow:hover,
+  .yellow:active {
+    background-color: $secondary-color--shadowed;
+  }
+
+  .red:hover,
+  .red:active {
+    background-color: $warning-color--shadowed;
+  }
+}
