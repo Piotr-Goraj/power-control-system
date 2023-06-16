@@ -1,4 +1,4 @@
-@import 'colors';
+@import '../variables';
 @font-face {
   font-family: MonomaniacOne;
   src: url('../fonts/MonomaniacOne-Regular.ttf');
@@ -23,4 +23,12 @@ img {
 h1 {
   font-size: 3rem;
   color: $font-color;
+}
+
+button {
+  border: inherit;
+  font: inherit;
+  color: inherit;
+  padding: inherit;
+  margin: inherit;
 }

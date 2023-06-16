@@ -23,3 +23,11 @@ h1 {
   font-size: 3rem;
   color: #dedede;
 }
+
+button {
+  border: inherit;
+  font: inherit;
+  color: inherit;
+  padding: inherit;
+  margin: inherit;
+}
