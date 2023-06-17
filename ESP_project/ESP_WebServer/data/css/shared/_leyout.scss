@@ -5,7 +5,7 @@
 .app-wrapper {
   text-align: center;
   min-height: 100vh;
-  @include flexCenter(column, flex-start);
+  @include flexCenter(column, flex-start, center);
   color: $font-color;
 }
 
@@ -46,14 +46,14 @@
 }
 
 header {
-  @include flexCenter(row, center);
+  @include flexCenter(row, center, center);
   width: 95%;
   margin: 1rem 0;
 
   .header__logo {
     width: 100%;
 
-    @include flexCenter(row, center);
+    @include flexCenter(row, center, center);
 
     /* https://kovart.github.io/dashed-border-generator/  */
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='5' ry='5' stroke='%23AA3C3C' stroke-width='5' stroke-dasharray='16%2c 22%2c 35' stroke-dashoffset='38' stroke-linecap='square'/%3e%3c/svg%3e");
@@ -86,19 +86,15 @@ header {
   }
 }
 
-nav {
-  display: none;
-
-  @include navbarStates();
-}
+@import '../mobile/mobileNav';
 
 main {
   width: 95%;
-  @include flexCenter(column, flex-start);
+  @include flexCenter(column, flex-start, center);
 
   .buttons-wrapper {
     width: 100%;
-    @include flexCenter(row, center);
+    @include flexCenter(row, center, center);
     flex-wrap: wrap;
 
     .buttons-wrapper__btn {
@@ -120,6 +116,7 @@ main {
   }
 
   .content-wrapper {
+    width: 100%;
     min-height: 50vh;
     background: $background-color--lighter;
     border-radius: 5px;
@@ -127,7 +124,7 @@ main {
     font-size: 2.5rem;
     line-height: 3.6rem;
 
-    @include flexCenter(column, center);
+    @include flexCenter(column, center, center);
 
     .content-wrapper__author {
       margin: 5rem;
@@ -151,15 +148,16 @@ footer {
     }
 
     .header__time {
-      @include flexCenter(column, center);
+      @include flexCenter(column, center, center);
     }
   }
 
-  nav {
+  .desktop-nav {
     all: unset; // reset mobile navbar design
 
-    @include flexCenter(row, space-between);
+    @include flexCenter(row, space-between, center);
     width: 95%;
+    margin-bottom: 1rem;
 
     .nav-btn {
       width: 19%;
@@ -181,5 +179,35 @@ footer {
     }
 
     @include navbarStates();
+  }
+
+  main {
+    @include flexCenter(row, center, flex-start);
+
+    .buttons-wrapper {
+      @include flexCenter(row, space-between, center);
+      flex-wrap: wrap;
+      width: 25%;
+
+      button {
+        margin: 0;
+      }
+
+      .buttons-wrapper__btn {
+        min-width: 9rem;
+        max-width: 49%;
+
+        height: 10rem;
+
+        padding: 0.5rem;
+        margin: 0 0 1rem 0;
+        line-height: 120%;
+      }
+    }
+
+    .content-wrapper {
+      width: 75%;
+      margin-left: 1rem;
+    }
   }
 }

@@ -1,0 +1,50 @@
+@import '../variables';
+@import '../functions';
+@import '../shared/nav-bar--states';
+
+.open {
+  display: flex !important;
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav {
+  @include flexCenter(column, center, center);
+  display: none;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background: rgba(219, 219, 219, 0.9);
+  height: 100vh;
+  width: 75vw;
+
+  .nav-btn {
+    width: 95%;
+    height: 10vh;
+    margin: 1rem;
+
+    font-size: 2.5rem;
+    background-color: $primary-color;
+    border-radius: 5px;
+  }
+
+  .yellow {
+    background-color: $secondary-color;
+  }
+
+  .red {
+    background-color: $warning-color;
+  }
+
+  @include navbarStates();
+}

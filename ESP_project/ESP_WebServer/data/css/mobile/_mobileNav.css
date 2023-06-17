@@ -1,0 +1,64 @@
+.open {
+  display: flex !important;
+}
+
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mobile-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background: rgba(219, 219, 219, 0.9);
+  height: 100vh;
+  width: 75vw;
+}
+
+.mobile-nav .nav-btn {
+  width: 95%;
+  height: 10vh;
+  margin: 1rem;
+  font-size: 2.5rem;
+  background-color: #335e96;
+  border-radius: 5px;
+}
+
+.mobile-nav .yellow {
+  background-color: #809624;
+}
+
+.mobile-nav .red {
+  background-color: #991506;
+}
+
+.mobile-nav .nav-btn:hover,
+.mobile-nav .nav-btn:active {
+  background: #122a4a;
+  cursor: pointer;
+}
+
+.mobile-nav .yellow:hover,
+.mobile-nav .yellow:active {
+  background: #404a15;
+  cursor: pointer;
+}
+
+.mobile-nav .red:hover,
+.mobile-nav .red:active {
+  background: #701506;
+  cursor: pointer;
+}
