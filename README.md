@@ -21,8 +21,10 @@ Piotr Goraj
  * Front-End
    + HTML
    + CSS
+     - RWD (Responsive Web Design)
      - SCSS
    + Java Script
+     - SPA (Single Page Aplication)
      - jquerry
 
 # Functionalities
