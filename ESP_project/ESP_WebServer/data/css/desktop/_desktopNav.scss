@@ -1,0 +1,32 @@
+@import '../variables';
+@import '../functions';
+@import '../states/nav-bar--states';
+
+.desktop-nav {
+  all: unset; // reset mobile navbar design
+
+  @include flexCenter(row, space-between, center);
+  width: 95%;
+  margin-bottom: 1rem;
+
+  .nav-btn {
+    width: 19%;
+    height: 11.5rem;
+
+    font-size: 2.5rem;
+
+    background-color: $primary-color;
+
+    border-radius: 5px;
+  }
+
+  .yellow {
+    background-color: $secondary-color;
+  }
+
+  .red {
+    background-color: $warning-color;
+  }
+
+  @include navbarStates();
+}

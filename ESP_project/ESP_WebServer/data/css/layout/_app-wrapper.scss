@@ -1,0 +1,18 @@
+@import '../variables';
+@import '../functions';
+@import '../states/nav-bar--states';
+
+.app-wrapper {
+  text-align: center;
+  min-height: 100vh;
+  @include flexCenter(column, flex-start, center);
+  color: $font-color;
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .app-wrapper {
+    min-width: 920px;
+    max-width: 66vw;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,57 @@
+@import '../variables';
+@import '../functions';
+@import '../states/nav-bar--states';
+
+header {
+  @include flexCenter(row, center, center);
+  width: 95%;
+  margin: 1rem 0;
+
+  .header__logo {
+    width: 100%;
+
+    @include flexCenter(row, center, center);
+
+    /* https://kovart.github.io/dashed-border-generator/  */
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='5' ry='5' stroke='%23AA3C3C' stroke-width='5' stroke-dasharray='16%2c 22%2c 35' stroke-dashoffset='38' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 5px;
+
+    padding: 1rem;
+
+    .logo__img {
+      padding: 1rem;
+      min-width: 8rem;
+      max-width: 11rem;
+    }
+
+    .logo__name {
+      margin: 1rem;
+
+      font-size: 4rem;
+      width: 60%;
+
+      text-align: center;
+    }
+  }
+
+  .header__time {
+    width: 45%;
+    padding: 2rem;
+    font-size: 4rem;
+
+    display: none;
+  }
+}
+
+@media (min-width: $breakpoint-mobile) {
+  header {
+    justify-content: space-between;
+    .header__logo {
+      width: 45%;
+    }
+
+    .header__time {
+      @include flexCenter(column, center, center);
+    }
+  }
+}

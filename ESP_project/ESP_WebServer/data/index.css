@@ -1,3 +1,36 @@
+@font-face {
+  font-family: MonomaniacOne;
+  src: url("../fonts/MonomaniacOne-Regular.ttf");
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #303030;
+  color: #dedede;
+  font-family: "Monomaniac One";
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #dedede;
+}
+
+button {
+  border: inherit;
+  font: inherit;
+  color: inherit;
+  padding: inherit;
+  margin: inherit;
+}
+
 .app-wrapper {
   text-align: center;
   min-height: 100vh;
@@ -8,6 +41,13 @@
   color: #dedede;
 }
 
+@media (min-width: 1024px) {
+  .app-wrapper {
+    min-width: 920px;
+    max-width: 66vw;
+    margin: 0 auto;
+  }
+}
 .top-bar {
   width: 100%;
   position: relative;
@@ -18,13 +58,11 @@
   z-index: 1;
   text-align: end;
 }
-
 .top-bar .top-bar__logo {
   height: 6rem;
   display: inline-block;
   vertical-align: middle;
 }
-
 .top-bar .toggle-button {
   width: 4.8rem;
   background: transparent;
@@ -35,7 +73,6 @@
   vertical-align: middle;
   margin: 0 1rem;
 }
-
 .top-bar .toggle-button .toggle-button__bar {
   width: 100%;
   height: 0.5rem;
@@ -44,6 +81,11 @@
   margin: 0.96rem 0;
 }
 
+@media (min-width: 650px) {
+  .top-bar {
+    display: none;
+  }
+}
 header {
   display: flex;
   justify-content: center;
@@ -52,7 +94,6 @@ header {
   width: 95%;
   margin: 1rem 0;
 }
-
 header .header__logo {
   width: 100%;
   display: flex;
@@ -64,25 +105,143 @@ header .header__logo {
   border-radius: 5px;
   padding: 1rem;
 }
-
 header .header__logo .logo__img {
   padding: 1rem;
   min-width: 8rem;
   max-width: 11rem;
 }
-
 header .header__logo .logo__name {
   margin: 1rem;
   font-size: 4rem;
   width: 60%;
   text-align: center;
 }
-
 header .header__time {
   width: 45%;
   padding: 2rem;
   font-size: 4rem;
   display: none;
+}
+
+@media (min-width: 650px) {
+  header {
+    justify-content: space-between;
+  }
+  header .header__logo {
+    width: 45%;
+  }
+  header .header__time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+main {
+  width: 95%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+main .buttons-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+main .buttons-wrapper .buttons-wrapper__btn {
+  width: 48%;
+  min-width: 16rem;
+  min-height: 3.6rem;
+  margin: 1rem 1%;
+  padding: 0 0 1rem 0;
+  background: #809624;
+  font-size: 2.5rem;
+  border-radius: 5px;
+}
+main .buttons-wrapper .buttons-wrapper__btn:hover, main .buttons-wrapper .buttons-wrapper__btn:active {
+  background: #404a15;
+  cursor: pointer;
+}
+main .content-wrapper {
+  width: 100%;
+  min-height: 50vh;
+  background: #505050;
+  border-radius: 5px;
+  font-size: 2.5rem;
+  line-height: 3.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main .content-wrapper .content-wrapper__author {
+  margin: 5rem;
+}
+
+@media (min-width: 650px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  main .buttons-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 25%;
+  }
+  main .buttons-wrapper button {
+    margin: 0;
+  }
+  main .buttons-wrapper .buttons-wrapper__btn {
+    min-width: unset;
+    max-width: unset;
+    width: 95%;
+    min-height: 6rem;
+    padding: 0.5rem;
+    margin: 0 0 1rem 0;
+    line-height: 120%;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  main .buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25%;
+  }
+  main .buttons-wrapper button {
+    margin: 0;
+  }
+  main .buttons-wrapper .buttons-wrapper__btn {
+    min-width: 9rem;
+    max-width: 49%;
+    height: 10rem;
+    padding: 0.5rem;
+    margin: 0 0 1rem 0;
+    line-height: 120%;
+  }
+  main .content-wrapper {
+    width: 75%;
+    margin-left: 1rem;
+  }
+}
+footer {
+  font-size: 1.6rem;
 }
 
 .open {
@@ -114,7 +273,6 @@ header .header__time {
   height: 100vh;
   width: 75vw;
 }
-
 .mobile-nav .nav-btn {
   width: 95%;
   height: 10vh;
@@ -123,171 +281,62 @@ header .header__time {
   background-color: #335e96;
   border-radius: 5px;
 }
-
 .mobile-nav .yellow {
   background-color: #809624;
 }
-
 .mobile-nav .red {
   background-color: #991506;
 }
-
 .mobile-nav .nav-btn:hover,
 .mobile-nav .nav-btn:active {
   background: #122a4a;
   cursor: pointer;
 }
-
 .mobile-nav .yellow:hover,
 .mobile-nav .yellow:active {
   background: #404a15;
   cursor: pointer;
 }
-
 .mobile-nav .red:hover,
 .mobile-nav .red:active {
   background: #701506;
   cursor: pointer;
 }
 
-main {
-  width: 95%;
+.desktop-nav {
+  all: unset;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-}
-
-main .buttons-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
+  width: 95%;
+  margin-bottom: 1rem;
 }
-
-main .buttons-wrapper .buttons-wrapper__btn {
-  width: 48%;
-  min-width: 16rem;
-  min-height: 3.6rem;
-  margin: 1rem 1%;
-  padding: 0 0 1rem 0;
-  background: #809624;
+.desktop-nav .nav-btn {
+  width: 19%;
+  height: 11.5rem;
   font-size: 2.5rem;
+  background-color: #335e96;
   border-radius: 5px;
 }
-
-main .buttons-wrapper .buttons-wrapper__btn:hover, main .buttons-wrapper .buttons-wrapper__btn:active {
+.desktop-nav .yellow {
+  background-color: #809624;
+}
+.desktop-nav .red {
+  background-color: #991506;
+}
+.desktop-nav .nav-btn:hover,
+.desktop-nav .nav-btn:active {
+  background: #122a4a;
+  cursor: pointer;
+}
+.desktop-nav .yellow:hover,
+.desktop-nav .yellow:active {
   background: #404a15;
   cursor: pointer;
 }
-
-main .content-wrapper {
-  width: 100%;
-  min-height: 50vh;
-  background: #505050;
-  border-radius: 5px;
-  font-size: 2.5rem;
-  line-height: 3.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-main .content-wrapper .content-wrapper__author {
-  margin: 5rem;
-}
-
-footer {
-  font-size: 1.6rem;
-}
-
-@media (min-width: 650px) {
-  .app-wrapper {
-    max-width: 66vw;
-    margin: 0 auto;
-  }
-  .top-bar {
-    display: none;
-  }
-  header {
-    justify-content: space-between;
-  }
-  header .header__logo {
-    width: 45%;
-  }
-  header .header__time {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .desktop-nav {
-    all: unset;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 95%;
-    margin-bottom: 1rem;
-  }
-  .desktop-nav .nav-btn {
-    width: 19%;
-    height: 11.5rem;
-    font-size: 2.5rem;
-    background-color: #335e96;
-    border-radius: 5px;
-  }
-  .desktop-nav .yellow {
-    background-color: #809624;
-  }
-  .desktop-nav .red {
-    background-color: #991506;
-  }
-  .desktop-nav .nav-btn:hover,
-  .desktop-nav .nav-btn:active {
-    background: #122a4a;
-    cursor: pointer;
-  }
-  .desktop-nav .yellow:hover,
-  .desktop-nav .yellow:active {
-    background: #404a15;
-    cursor: pointer;
-  }
-  .desktop-nav .red:hover,
-  .desktop-nav .red:active {
-    background: #701506;
-    cursor: pointer;
-  }
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-  }
-  main .buttons-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 25%;
-  }
-  main .buttons-wrapper button {
-    margin: 0;
-  }
-  main .buttons-wrapper .buttons-wrapper__btn {
-    min-width: 9rem;
-    max-width: 49%;
-    height: 10rem;
-    padding: 0.5rem;
-    margin: 0 0 1rem 0;
-    line-height: 120%;
-  }
-  main .content-wrapper {
-    width: 75%;
-    margin-left: 1rem;
-  }
+.desktop-nav .red:hover,
+.desktop-nav .red:active {
+  background: #701506;
+  cursor: pointer;
 }
