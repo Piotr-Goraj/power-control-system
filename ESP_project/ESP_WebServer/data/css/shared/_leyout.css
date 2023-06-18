@@ -205,6 +205,10 @@ footer {
 }
 
 @media (min-width: 650px) {
+  .app-wrapper {
+    max-width: 66vw;
+    margin: 0 auto;
+  }
   .top-bar {
     display: none;
   }

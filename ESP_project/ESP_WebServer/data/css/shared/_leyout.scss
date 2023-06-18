@@ -137,6 +137,11 @@ footer {
 }
 
 @media (min-width: $breakpoint-mobile) {
+  .app-wrapper {
+    max-width: 66vw;
+    margin: 0 auto;
+  }
+
   .top-bar {
     display: none;
   }

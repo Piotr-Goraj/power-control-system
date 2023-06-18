@@ -1,0 +1,19 @@
+
+.icon-bat100:before { content: '\e800'; } /* '' */
+.icon-mobile-1:before { content: '\e801'; } /* '' */
+.icon-settings:before { content: '\e802'; } /* '' */
+.icon-home:before { content: '\e803'; } /* '' */
+.icon-plug:before { content: '\e805'; } /* '' */
+.icon-bat-charge:before { content: '\e806'; } /* '' */
+.icon-laptop:before { content: '\e807'; } /* '' */
+.icon-bat75:before { content: '\e809'; } /* '' */
+.icon-bat25:before { content: '\e80a'; } /* '' */
+.icon-bat50:before { content: '\e80b'; } /* '' */
+.icon-download-data:before { content: '\e80c'; } /* '' */
+.icon-decrease-white:before { content: '\e80d'; } /* '' */
+.icon-decrease-black:before { content: '\e80e'; } /* '' */
+.icon-increase-white:before { content: '\e80f'; } /* '' */
+.icon-increase-black:before { content: '\e810'; } /* '' */
+.icon-chart:before { content: '\e812'; } /* '' */
+.icon-loading:before { content: '\e834'; } /* '' */
+.icon-cooler:before { content: '\f2dc'; } /* '' */
