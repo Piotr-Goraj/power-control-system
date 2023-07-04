@@ -40,7 +40,6 @@ button {
   flex-direction: column;
   color: #dedede;
 }
-
 @media (min-width: 1024px) {
   .app-wrapper {
     min-width: 920px;
@@ -48,12 +47,13 @@ button {
     margin: 0 auto;
   }
 }
+
 .top-bar {
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
-  background: #404a15;
+  background: #4b5815;
   padding: 0.5rem 0;
   z-index: 1;
   text-align: end;
@@ -163,13 +163,13 @@ main .buttons-wrapper .buttons-wrapper__btn {
   border-radius: 5px;
 }
 main .buttons-wrapper .buttons-wrapper__btn:hover, main .buttons-wrapper .buttons-wrapper__btn:active {
-  background: #404a15;
+  background: #4b5815;
   cursor: pointer;
 }
 main .content-wrapper {
   width: 100%;
   min-height: 50vh;
-  background: #505050;
+  background: #565656;
   border-radius: 5px;
   font-size: 2.5rem;
   line-height: 3.6rem;
@@ -287,19 +287,16 @@ footer {
 .mobile-nav .red {
   background-color: #991506;
 }
-.mobile-nav .nav-btn:hover,
-.mobile-nav .nav-btn:active {
-  background: #122a4a;
+.mobile-nav .nav-btn:hover, .mobile-nav .nav-btn:active {
+  background: #203a5d;
   cursor: pointer;
 }
-.mobile-nav .yellow:hover,
-.mobile-nav .yellow:active {
-  background: #404a15;
+.mobile-nav .yellow:hover, .mobile-nav .yellow:active {
+  background: #4b5815;
   cursor: pointer;
 }
-.mobile-nav .red:hover,
-.mobile-nav .red:active {
-  background: #701506;
+.mobile-nav .red:hover, .mobile-nav .red:active {
+  background: #4f0b03;
   cursor: pointer;
 }
 
@@ -325,18 +322,15 @@ footer {
 .desktop-nav .red {
   background-color: #991506;
 }
-.desktop-nav .nav-btn:hover,
-.desktop-nav .nav-btn:active {
-  background: #122a4a;
+.desktop-nav .nav-btn:hover, .desktop-nav .nav-btn:active {
+  background: #203a5d;
   cursor: pointer;
 }
-.desktop-nav .yellow:hover,
-.desktop-nav .yellow:active {
-  background: #404a15;
+.desktop-nav .yellow:hover, .desktop-nav .yellow:active {
+  background: #4b5815;
   cursor: pointer;
 }
-.desktop-nav .red:hover,
-.desktop-nav .red:active {
-  background: #701506;
+.desktop-nav .red:hover, .desktop-nav .red:active {
+  background: #4f0b03;
   cursor: pointer;
 }

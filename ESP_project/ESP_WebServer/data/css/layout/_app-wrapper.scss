@@ -7,10 +7,8 @@
   min-height: 100vh;
   @include flexCenter(column, flex-start, center);
   color: $font-color;
-}
 
-@media (min-width: $breakpoint-desktop) {
-  .app-wrapper {
+  @media (min-width: $breakpoint-desktop) {
     min-width: 920px;
     max-width: 66vw;
     margin: 0 auto;

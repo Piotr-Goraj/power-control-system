@@ -2,18 +2,24 @@
 @import '../variables';
 
 @mixin navbarStates() {
-  .nav-btn:hover,
-  .nav-btn:active {
-    @include buttonHover($primary-color--shadowed);
+  .nav-btn {
+    &:hover,
+    &:active {
+      @include buttonHover($primary-color--shadowed);
+    }
   }
 
-  .yellow:hover,
-  .yellow:active {
-    @include buttonHover($secondary-color--shadowed);
+  .yellow {
+    &:hover,
+    &:active {
+      @include buttonHover($secondary-color--shadowed);
+    }
   }
 
-  .red:hover,
-  .red:active {
-    @include buttonHover($warning-color--shadowed);
+  .red {
+    &:hover,
+    &:active {
+      @include buttonHover($warning-color--shadowed);
+    }
   }
 }
