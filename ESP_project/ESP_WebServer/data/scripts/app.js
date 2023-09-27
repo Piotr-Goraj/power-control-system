@@ -1,11 +1,23 @@
+import { randomQuote } from './HomePage.js';
+
 //---------------- NAV OPTIONS -----------------\\
 function loadContent(section) {
   $('#main-content').load(section);
 }
 
+const quoteShow = () => {
+  setTimeout(() => {
+    $('.content-wrapper__quote').text(`${randomQuote.text}`);
+    $('.content-wrapper__author').text(`Author: ${randomQuote.author}`);
+  }, 20);
+};
+
 $(document).ready(function () {
+  quoteShow();
+
   $('#main-btn').click(function () {
     loadContent('contents/home-content.html');
+    quoteShow();
   });
 
   $('#power-btn').click(function () {
