@@ -2,7 +2,6 @@
   font-family: MonomaniacOne;
   src: url("../fonts/MonomaniacOne-Regular.ttf");
 }
-
 html {
   font-size: 10px;
 }
@@ -10,7 +9,7 @@ html {
 body {
   background-color: #303030;
   color: #dedede;
-  font-family: 'Monomaniac One';
+  font-family: "Monomaniac One";
   margin: 0;
 }
 

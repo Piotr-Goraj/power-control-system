@@ -18,13 +18,11 @@
   z-index: 1;
   text-align: end;
 }
-
 .top-bar .top-bar__logo {
   height: 6rem;
   display: inline-block;
   vertical-align: middle;
 }
-
 .top-bar .toggle-button {
   width: 4.8rem;
   background: transparent;
@@ -35,7 +33,6 @@
   vertical-align: middle;
   margin: 0 1rem;
 }
-
 .top-bar .toggle-button .toggle-button__bar {
   width: 100%;
   height: 0.5rem;
@@ -52,7 +49,6 @@ header {
   width: 95%;
   margin: 1rem 0;
 }
-
 header .header__logo {
   width: 100%;
   display: flex;
@@ -64,20 +60,17 @@ header .header__logo {
   border-radius: 5px;
   padding: 1rem;
 }
-
 header .header__logo .logo__img {
   padding: 1rem;
   min-width: 8rem;
   max-width: 11rem;
 }
-
 header .header__logo .logo__name {
   margin: 1rem;
   font-size: 4rem;
   width: 60%;
   text-align: center;
 }
-
 header .header__time {
   width: 45%;
   padding: 2rem;
@@ -114,7 +107,6 @@ header .header__time {
   height: 100vh;
   width: 75vw;
 }
-
 .mobile-nav .nav-btn {
   width: 95%;
   height: 10vh;
@@ -123,27 +115,22 @@ header .header__time {
   background-color: #335e96;
   border-radius: 5px;
 }
-
 .mobile-nav .yellow {
   background-color: #809624;
 }
-
 .mobile-nav .red {
   background-color: #991506;
 }
-
 .mobile-nav .nav-btn:hover,
 .mobile-nav .nav-btn:active {
   background: #122a4a;
   cursor: pointer;
 }
-
 .mobile-nav .yellow:hover,
 .mobile-nav .yellow:active {
   background: #404a15;
   cursor: pointer;
 }
-
 .mobile-nav .red:hover,
 .mobile-nav .red:active {
   background: #701506;
@@ -157,7 +144,6 @@ main {
   align-items: center;
   flex-direction: column;
 }
-
 main .buttons-wrapper {
   width: 100%;
   display: flex;
@@ -166,10 +152,8 @@ main .buttons-wrapper {
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 main .buttons-wrapper .buttons-wrapper__btn {
   width: 48%;
-  min-width: 16rem;
   min-height: 3.6rem;
   margin: 1rem 1%;
   padding: 0 0 1rem 0;
@@ -177,12 +161,10 @@ main .buttons-wrapper .buttons-wrapper__btn {
   font-size: 2.5rem;
   border-radius: 5px;
 }
-
 main .buttons-wrapper .buttons-wrapper__btn:hover, main .buttons-wrapper .buttons-wrapper__btn:active {
   background: #404a15;
   cursor: pointer;
 }
-
 main .content-wrapper {
   width: 100%;
   min-height: 50vh;
@@ -195,7 +177,6 @@ main .content-wrapper {
   align-items: center;
   flex-direction: column;
 }
-
 main .content-wrapper .content-wrapper__author {
   margin: 5rem;
 }

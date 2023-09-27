@@ -16,14 +16,17 @@
 
     <link
       rel="stylesheet"
-      href="./css/shared/_html-tags.css"
+      href="./styles/shared/html-tags.css"
       type="text/css"
     />
     <link
       rel="stylesheet"
-      href="./css/shared/_leyout.css"
+      href="./styles/shared/leyout.css"
       type="text/css"
     />
+
+    <script src="./scripts/code.jquery.com_jquery-3.7.1.min.js"></script>
+    <script src="./scripts/app.js"></script>
   </head>
 
   <body>
@@ -62,20 +65,48 @@
       </header>
 
       <nav class="mobile-nav">
-        <button class="nav-btn yellow"><a>Main</a></button>
-        <button class="nav-btn"><a>Power</a></button>
-        <button class="nav-btn"><a>Cooling</a></button>
-        <button class="nav-btn red"><a>Analysys</a></button>
-        <button class="nav-btn red"><a>Settings</a></button>
+        <button
+          class="nav-btn yellow"
+          id="main-btn"
+        >
+          <a>Main</a>
+        </button>
+        <button
+          class="nav-btn"
+          id="power-btn"
+        >
+          <a>Power</a>
+        </button>
+        <button
+          class="nav-btn"
+          id="cooling-btn"
+        >
+          <a>Cooling</a>
+        </button>
+        <button
+          class="nav-btn red"
+          id="analysys-btn"
+        >
+          <a>Analysys</a>
+        </button>
+        <button
+          class="nav-btn red"
+          id="settings-btn"
+        >
+          <a>Settings</a>
+        </button>
       </nav>
 
-      <main>
+      <main id="main-content">
         <div class="buttons-wrapper">
           <button class="buttons-wrapper__btn">Previous quote</button>
           <button class="buttons-wrapper__btn">Next quote</button>
         </div>
         <section class="content-wrapper">
-          <div class="content-wrapper__quote">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem ipsum Lorem ipsum</div>
+          <div class="content-wrapper__quote">
+            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem ipsum Lorem
+            ipsum
+          </div>
           <div class="content-wrapper__author">Author: Lorem ipsum</div>
         </section>
       </main>
@@ -87,6 +118,5 @@
       </footer>
     </div>
     <script src="./scripts/navbar.js"></script>
-    <script src="./scripts/mobileNavbar.js"></script>
   </body>
 </html>
