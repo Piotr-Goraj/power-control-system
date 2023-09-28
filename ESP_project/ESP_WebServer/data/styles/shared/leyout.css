@@ -13,7 +13,7 @@
   position: relative;
   top: 0;
   left: 0;
-  background: #404a15;
+  background: #414c12;
   padding: 0.5rem 0;
   z-index: 1;
   text-align: end;
@@ -107,6 +107,12 @@ header .header__time {
   height: 100vh;
   width: 75vw;
 }
+.mobile-nav .active-nav__blue {
+  background-color: #1c3351 !important;
+}
+.mobile-nav .active-nav__red {
+  background-color: #4a0a03 !important;
+}
 .mobile-nav .nav-btn {
   width: 95%;
   height: 10vh;
@@ -123,17 +129,17 @@ header .header__time {
 }
 .mobile-nav .nav-btn:hover,
 .mobile-nav .nav-btn:active {
-  background: #122a4a;
+  background: #1c3351;
   cursor: pointer;
 }
 .mobile-nav .yellow:hover,
 .mobile-nav .yellow:active {
-  background: #404a15;
+  background: #414c12;
   cursor: pointer;
 }
 .mobile-nav .red:hover,
 .mobile-nav .red:active {
-  background: #701506;
+  background: #4a0a03;
   cursor: pointer;
 }
 
@@ -152,6 +158,9 @@ main .buttons-wrapper {
   flex-direction: row;
   flex-wrap: wrap;
 }
+main .buttons-wrapper .active-btn {
+  background-color: #414c12 !important;
+}
 main .buttons-wrapper .buttons-wrapper__btn {
   width: 48%;
   min-height: 3.6rem;
@@ -162,23 +171,25 @@ main .buttons-wrapper .buttons-wrapper__btn {
   border-radius: 5px;
 }
 main .buttons-wrapper .buttons-wrapper__btn:hover, main .buttons-wrapper .buttons-wrapper__btn:active {
-  background: #404a15;
+  background: #414c12;
   cursor: pointer;
 }
 main .content-wrapper {
   width: 100%;
   min-height: 50vh;
-  background: #505050;
+  background: #4f4f4f;
   border-radius: 5px;
   font-size: 2.5rem;
   line-height: 3.6rem;
+}
+main .content-wrapper .content-wrapper__author {
+  margin: 5rem;
+}
+main .quote-flex {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-main .content-wrapper .content-wrapper__author {
-  margin: 5rem;
 }
 
 footer {
@@ -210,6 +221,12 @@ footer {
     width: 95%;
     margin-bottom: 1rem;
   }
+  .desktop-nav .active-nav__blue {
+    background-color: #1c3351 !important;
+  }
+  .desktop-nav .active-nav__red {
+    background-color: #4a0a03 !important;
+  }
   .desktop-nav .nav-btn {
     width: 19%;
     height: 11.5rem;
@@ -225,17 +242,17 @@ footer {
   }
   .desktop-nav .nav-btn:hover,
   .desktop-nav .nav-btn:active {
-    background: #122a4a;
+    background: #1c3351;
     cursor: pointer;
   }
   .desktop-nav .yellow:hover,
   .desktop-nav .yellow:active {
-    background: #404a15;
+    background: #414c12;
     cursor: pointer;
   }
   .desktop-nav .red:hover,
   .desktop-nav .red:active {
-    background: #701506;
+    background: #4a0a03;
     cursor: pointer;
   }
   main {

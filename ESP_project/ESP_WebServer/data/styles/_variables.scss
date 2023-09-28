@@ -2,16 +2,19 @@
 $font-color: #dedede;
 
 $primary-color: #335e96;
-$primary-color--shadowed: #122a4a;
+$primary-color--shadowed: darken($primary-color, 18%);
 
 $secondary-color: #809624;
-$secondary-color--shadowed: #404a15;
+$secondary-color--shadowed: darken($secondary-color, 18%);
 
 $warning-color: #991506;
-$warning-color--shadowed: #701506;
+$warning-color--shadowed: darken($warning-color, 16%);
 
 $background-color: #303030;
-$background-color--lighter: #505050;
+$background-color--lighter: lighten($background-color, 12%);
+
+$content-btn-color: #3c0fa3;
+$content-btn-color--shadowed: darken($content-btn-color, 18%);
 
 // Predefined Break-points
 $breakpoint-mobile: 650px;

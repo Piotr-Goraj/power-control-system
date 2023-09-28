@@ -26,26 +26,45 @@ $(document).ready(function () {
   $('#main-btn').click(function () {
     loadContent('contents/home-content.html');
     $('.mobile-logo').css('display', 'flex');
+
+    $('*').removeClass('active-nav__blue').removeClass('active-nav__red').removeClass('active-btn');
+
     quoteShow();
   });
 
   $('#power-btn').click(function () {
     loadContent('contents/power-content.html');
     $('.mobile-logo').css('display', 'none');
+
+    $('#power-btn').addClass('active-nav__blue');
+    $('*').not('#power-btn').removeClass('active-nav__blue').removeClass('active-nav__red');
+    $('*').removeClass('active-btn');
   });
 
   $('#cooling-btn').click(function () {
     loadContent('contents/cooling-content.html');
     $('.mobile-logo').css('display', 'none');
+
+    $('#cooling-btn').addClass('active-nav__blue');
+    $('*').not('#cooling-btn').removeClass('active-nav__blue').removeClass('active-nav__red');
+    $('*').removeClass('active-btn');
   });
 
   $('#analysys-btn').click(function () {
     loadContent('contents/analysys-content.html');
     $('.mobile-logo').css('display', 'none');
+
+    $('#analysys-btn').addClass('active-nav__red');
+    $('*').not('#analysys-btn').removeClass('active-nav__blue').removeClass('active-nav__red');
+    $('*').removeClass('active-btn');
   });
 
   $('#settings-btn').click(function () {
     loadContent('contents/settings-content.html');
     $('.mobile-logo').css('display', 'none');
+
+    $('#settings-btn').addClass('active-nav__red');
+    $('*').not('#settings-btn').removeClass('active-nav__blue').removeClass('active-nav__red');
+    $('*').removeClass('active-btn');
   });
 });

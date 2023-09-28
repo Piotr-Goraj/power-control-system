@@ -97,6 +97,9 @@ main {
     @include flexCenter(row, center, center);
     flex-wrap: wrap;
 
+    .active-btn {
+      background-color: $secondary-color--shadowed !important;
+    }
     .buttons-wrapper__btn {
       width: 48%;
       min-height: 3.6rem;
@@ -123,11 +126,13 @@ main {
     font-size: 2.5rem;
     line-height: 3.6rem;
 
-    @include flexCenter(column, center, center);
-
     .content-wrapper__author {
       margin: 5rem;
     }
+  }
+
+  .quote-flex {
+    @include flexCenter(column, center, center);
   }
 }
 
@@ -157,6 +162,14 @@ footer {
     @include flexCenter(row, space-between, center);
     width: 95%;
     margin-bottom: 1rem;
+
+    .active-nav__blue {
+      background-color: $primary-color--shadowed !important;
+    }
+
+    .active-nav__red {
+      background-color: $warning-color--shadowed !important;
+    }
 
     .nav-btn {
       width: 19%;

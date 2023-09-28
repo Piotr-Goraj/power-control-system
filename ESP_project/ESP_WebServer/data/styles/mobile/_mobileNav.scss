@@ -28,6 +28,14 @@
   height: 100vh;
   width: 75vw;
 
+  .active-nav__blue {
+    background-color: $primary-color--shadowed !important;
+  }
+
+  .active-nav__red {
+    background-color: $warning-color--shadowed !important;
+  }
+
   .nav-btn {
     width: 95%;
     height: 10vh;
