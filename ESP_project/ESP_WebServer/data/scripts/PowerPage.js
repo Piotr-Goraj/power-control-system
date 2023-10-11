@@ -8,11 +8,29 @@ $(document).on('click', '#socket-1', () => {
   const btnsSwitch = $('<div>')
     .addClass('btns-switch')
     .append(
-      onBtn(1, () => {
+      onBtn(1, async () => {
         alert('Socket 1 turn on.');
+
+        try {
+          const response = await fetch('/socket1-on');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       }),
-      offBtn(1, () => {
+      offBtn(1, async () => {
         alert('Socket 1 turn off.');
+
+        try {
+          const response = await fetch('/socket1-off');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       })
     );
   $('.content-wrapper').html(socketTitle('Battery (Socket 1)')).append(btnsSwitch);
