@@ -44,11 +44,29 @@ $(document).on('click', '#socket-2', () => {
   const btnsSwitch = $('<div>')
     .addClass('btns-switch')
     .append(
-      onBtn(2, () => {
+      onBtn(2, async () => {
         alert('Socket 2 turn on.');
+
+        try {
+          const response = await fetch('/socket2-on');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       }),
-      offBtn(2, () => {
+      offBtn(2, async () => {
         alert('Socket 2 turn off.');
+
+        try {
+          const response = await fetch('/socket2-off');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       })
     );
   $('.content-wrapper').html(socketTitle('Socket 2')).append(btnsSwitch);
@@ -62,11 +80,29 @@ $(document).on('click', '#socket-3', () => {
   const btnsSwitch = $('<div>')
     .addClass('btns-switch')
     .append(
-      onBtn(3, () => {
+      onBtn(3, async () => {
         alert('Socket 3 turn on.');
+
+        try {
+          const response = await fetch('/socket3-on');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       }),
-      offBtn(3, () => {
+      offBtn(3, async () => {
         alert('Socket 3 turn off.');
+
+        try {
+          const response = await fetch('/socket3-off');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       })
     );
   $('.content-wrapper').html(socketTitle('Socket 3')).append(btnsSwitch);
@@ -80,11 +116,36 @@ $(document).on('click', '#socket-4', () => {
   const btnsSwitch = $('<div>')
     .addClass('btns-switch')
     .append(
-      onBtn(4, () => {
+      onBtn(4, async () => {
         alert('Socket 4 turn on.');
+
+        const requestOptions = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+
+        try {
+          const response = await fetch('/socket4-on', requestOptions);
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       }),
-      offBtn(4, () => {
+      offBtn(4, async () => {
         alert('Socket 4 turn off.');
+
+        try {
+          const response = await fetch('/socket4-off');
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
       })
     );
   $('.content-wrapper').html(socketTitle('Socket 4')).append(btnsSwitch);

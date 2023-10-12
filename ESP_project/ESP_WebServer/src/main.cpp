@@ -2,8 +2,7 @@
 #include <ESP8266WiFi.h>
 #include <LittleFS.h>
 #include <ESPAsyncWebServer.h>
-// #include <WiFiUdp.h>
-
+#include <ArduinoJson.h>
 #define SSID "Internet_Domowy"
 #define PASS "BD30355E"
 
@@ -17,6 +16,17 @@ AsyncWebServer serwer(80);
 IPAddress localIp(192, 168, 0, 17);
 IPAddress gateway(192, 168, 0, 0);
 IPAddress subnet(255, 255, 255, 0);
+
+void sendJSONResponse(AsyncWebServerRequest *request)
+{
+  StaticJsonDocument<64> jsonDoc;
+  jsonDoc["status"] = "success";
+
+  String jsonString;
+  serializeJson(jsonDoc, jsonString);
+
+  request->send(200, "application/json", jsonString);
+}
 
 void setup()
 {
@@ -52,6 +62,9 @@ void setup()
             { request->send(LittleFS, "/index.html"); });
 
   //        <<-------- contents -------->>
+
+  // home-content.html
+
   serwer.on("/contents/power-content.html", HTTP_GET, [](AsyncWebServerRequest *request)
             { request->send(LittleFS, "/contents/power-content.html"); });
 
@@ -65,6 +78,8 @@ void setup()
             { request->send(LittleFS, "/contents/settings-content.html"); });
 
   //        <<-------- fonts -------->>
+  serwer.on("/fonts/MonomaniacOne-Regular.ttf", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/fonts/MonomaniacOne-Regular.ttf"); });
 
   //        <<-------- images -------->>
   serwer.on("/images/logo_power_management.png", HTTP_GET, [](AsyncWebServerRequest *request)
@@ -113,12 +128,42 @@ void setup()
   serwer.on("/socket1-on", HTTP_GET, [](AsyncWebServerRequest *request)
             {   
               digitalWrite(socket1, HIGH);
-              request->send(200); });
+              sendJSONResponse(request); });
 
   serwer.on("/socket1-off", HTTP_GET, [](AsyncWebServerRequest *request)
             {   
               digitalWrite(socket1, LOW);
-              request->send(200); });
+              sendJSONResponse(request); });
+
+  serwer.on("/socket2-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket2, HIGH);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket2-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket2, LOW);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket3-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket3, HIGH);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket3-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket3, LOW);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket4-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket4, HIGH);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket4-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket4, LOW);
+              sendJSONResponse(request); });
 
   serwer.begin();
 }
