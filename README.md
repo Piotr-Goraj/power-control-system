@@ -15,7 +15,7 @@ Piotr Goraj
 [GitHub account](https://github.com/Piotr-Goraj) /
 [LinkedIn](https://www.linkedin.com/in/piotr-goraj-154a79225/?locale=en_US)
 
-> I am a second degree student at the Cracow University of Technology, majoring in infotronics. I also graduated from engineering studies at the Cracow University of Technology, majoring in electrical engineering, specializing in Automation in Electronic Systems. I belong to science clubs, one dealing with microprocessor programming and secound - 3D graphics and 3D printers. Through professional experience, I gained the ability to work in a team as well as organize it with the distinction of individual tasks.
+>I am a master's student of AWSB Merito, majoring in computer science, specializing in artificial intelligence management. I am a graduate of the Krakow University of Technology, majoring in electrical engineering. I belonged to research groups dealing with microprocessor programming and 3D graphics. Thanks to my professional experience, I have gained the ability to work in a team and organize this work into individual tasks.
 
 # Technologies used
  * Front-End
