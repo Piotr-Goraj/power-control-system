@@ -27,9 +27,12 @@ window.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth < 650) {
       navElement.classList.remove('desktop-nav');
       navElement.classList.add('mobile-nav');
+      $('.header__logo').addClass('mobile-logo');
     } else {
       navElement.classList.remove('mobile-nav');
       navElement.classList.add('desktop-nav');
+      $('.header__logo').removeClass('mobile-logo');
+      $('.header__logo').css('display', 'flex');
     }
   }
 

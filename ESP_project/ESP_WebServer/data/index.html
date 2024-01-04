@@ -24,9 +24,21 @@
       href="./styles/shared/leyout.css"
       type="text/css"
     />
+    <link
+      rel="stylesheet"
+      href="./styles/shared/elements.css"
+      type="text/css"
+    />
 
-    <script src="./scripts/code.jquery.com_jquery-3.7.1.min.js"></script>
-    <script src="./scripts/app.js"></script>
+    <script src="./jquery-3.7.1.min.js"></script>
+    <script
+      type="module"
+      src="./scripts/app.js"
+    ></script>
+    <script
+      type="module"
+      src="./scripts/PowerPage.js"
+    ></script>
   </head>
 
   <body>
@@ -98,16 +110,12 @@
       </nav>
 
       <main id="main-content">
-        <div class="buttons-wrapper">
-          <button class="buttons-wrapper__btn">Previous quote</button>
-          <button class="buttons-wrapper__btn">Next quote</button>
-        </div>
-        <section class="content-wrapper">
+        <div class="buttons-wrapper"></div>
+        <section class="content-wrapper quote-flex">
           <div class="content-wrapper__quote">
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsumLorem ipsum Lorem
-            ipsum
+            Even the smallest person can change the course of the future.
           </div>
-          <div class="content-wrapper__author">Author: Lorem ipsum</div>
+          <div class="content-wrapper__author">Author: J.R.R. Tolkien</div>
         </section>
       </main>
 
@@ -117,6 +125,6 @@
         © All rights reserved.
       </footer>
     </div>
-    <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/Navbar.js"></script>
   </body>
 </html>

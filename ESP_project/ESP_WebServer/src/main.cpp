@@ -2,75 +2,49 @@
 #include <ESP8266WiFi.h>
 #include <LittleFS.h>
 #include <ESPAsyncWebServer.h>
-#include <WiFiUdp.h>
-#include "ESPAsyncUDP.h"
 #include <ArduinoJson.h>
+#define SSID "Internet_Domowy"
+#define PASS "BD30355E"
 
-/* #define SSID "nazwa sieci"
-#define PASS "hasło sieci" */
-
-/* #define SSID "PK-link"
-#define PASS "mafiaWIEIK" */
-
-/* #define SSID "Internet_Domowy"
-#define PASS "BD30355E" */
-
-/* #define SSID "FunBox2-5A43"
-#define PASS "DC975CCE329F5AE56D274DF9CD" */
-
-// #define SSID "Redmi Note 8T"
-// #define PASS "kormoran_07"
-
-/* #define SSID "Galaxy S20"
-#define PASS "kiziamizia" */
-
-#define RELAY D5
-#define RELAY_2 D6
-
-unsigned int UdpPort = 7070;
-WiFiUDP UDP;
-
-int paczkaDanych;
-char dataPackage[255];
-String battery_percentage;
+#define socket1 D5
+#define socket2 D6
+#define socket3 D7
+#define socket4 D8
 
 AsyncWebServer serwer(80);
 
-AsyncUDP udp;
 IPAddress localIp(192, 168, 0, 17);
 IPAddress gateway(192, 168, 0, 0);
 IPAddress subnet(255, 255, 255, 0);
 
-void battery_check()
+void sendJSONResponse(AsyncWebServerRequest *request)
 {
-  // Open the file
-  File bat_per_value = LittleFS.open("/bat_per_val.js", "w");
+  StaticJsonDocument<64> jsonDoc;
+  jsonDoc["status"] = "success";
 
-  // String js_file = "setInterval(() => {  localStorage.setItem(\"battery_percentage_value\", "+ battery_percentage +"); }, 1000); console.log(\"Nadpisane\");";
+  String jsonString;
+  serializeJson(jsonDoc, jsonString);
 
-  // Write to the file
-  // bat_per_value.print(js_file);
-  bat_per_value.print("setInterval(() => {  localStorage.setItem(\"battery_percentage_value\", ");
-  bat_per_value.print(battery_percentage);
-  bat_per_value.print("); }, 1000); ");
-  bat_per_value.println("console.log(\"Nadpisane\");");
-
-  // Close the file
-  bat_per_value.close();
+  request->send(200, "application/json", jsonString);
 }
 
 void setup()
 {
-  pinMode(RELAY, OUTPUT);
-  digitalWrite(RELAY, LOW);
-  pinMode(RELAY_2, OUTPUT);
-  digitalWrite(RELAY_2, LOW);
+
+  //                         <<-------- PIN state -------->>
+  pinMode(socket1, OUTPUT);
+  digitalWrite(socket1, LOW);
+  pinMode(socket2, OUTPUT);
+  digitalWrite(socket2, LOW);
+  pinMode(socket3, OUTPUT);
+  digitalWrite(socket3, LOW);
+  pinMode(socket4, OUTPUT);
+  digitalWrite(socket4, LOW);
 
   Serial.begin(115200);
   LittleFS.begin();
-  UDP.begin(UdpPort);
 
-  //--------------------------------        WiFi config       --------------------------------//
+  //                         <<-------- WiFi config -------->>
   WiFi.begin(SSID, PASS);
   WiFi.config(localIp, gateway, subnet);
   while (WiFi.status() != WL_CONNECTED)
@@ -81,136 +55,119 @@ void setup()
   Serial.printf("\nAdres IP:");
   Serial.println(WiFi.localIP());
 
-  { //--------------------------------        reqests       --------------------------------//
+  //                         <<-------- REST API -------->>
 
-    //----- websites -----//
-    serwer.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/index.html"); });
+  //        <<-------- web-app -------->>
+  serwer.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/index.html"); });
 
-    serwer.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/index.html"); });
+  //        <<-------- contents -------->>
 
-    serwer.on("/power.html", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/power.html"); });
+  // home-content.html
 
-    serwer.on("/cooler.html", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/cooler.html"); });
+  serwer.on("/contents/power-content.html", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/contents/power-content.html"); });
 
-    serwer.on("/data_analysys.html", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/data_analysys.html"); });
+  serwer.on("/contents/cooling-content.html", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/contents/cooling-content.html"); });
 
-    serwer.on("/settings.html", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/settings.html"); });
+  serwer.on("/contents/analysys-content.html", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/contents/analysys-content.html"); });
 
-    //----- js files -----//
-    serwer.on("/time.js", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/time.js"); });
+  serwer.on("/contents/settings-content.html", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/contents/settings-content.html"); });
 
-    serwer.on("/power_control.js", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/power_control.js"); });
+  //        <<-------- fonts -------->>
+  serwer.on("/fonts/MonomaniacOne-Regular.ttf", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/fonts/MonomaniacOne-Regular.ttf"); });
 
-    serwer.on("/quotes.js", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/quotes.js"); });
+  //        <<-------- images -------->>
+  serwer.on("/images/logo_power_management.png", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/images/logo_power_management.png"); });
 
-    serwer.on("/bat_per_val.js", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/bat_per_val.js"); });
+  serwer.on("/images/PG_logo.png", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/images/PG_logo.png"); });
 
-    serwer.on("/jquery-3.6.1.min.js", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/jquery-3.6.1.min.js"); });
+  serwer.on("/favicon.ico", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/images/favicon.ico"); });
 
-    //----- css files -----//
-    serwer.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/style.css"); });
+  //        <<-------- JSONs -------->>
+  serwer.on("/data/JSONs/quotes.json", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/JSONs/quotes.json"); });
 
-    serwer.on("/css/fontello.css", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/css/fontello.css"); });
+  //        <<-------- scripts -------->>
+  serwer.on("/jquery-3.7.1.min.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/jquery-3.7.1.min.js"); });
 
-    serwer.on("/font/fontello.woff", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/font/fontello.woff"); });
+  serwer.on("/scripts/app.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/scripts/app.js"); });
 
-    serwer.on("/font/fontello.woff2", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/font/fontello.woff2"); });
+  serwer.on("/scripts/PowerPage.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/scripts/PowerPage.js"); });
 
-    serwer.on("/font/fontello.ttf", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/font/fontello.ttf"); });
+  serwer.on("/scripts/Navbar.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/scripts/Navbar.js"); });
 
-    serwer.on("/img/PG_logo.png", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(LittleFS, "/img/PG_logo.png"); });
+  serwer.on("/scripts/HomePage.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/scripts/HomePage.js"); });
 
-    //----- control -----//
-    serwer.on("/relay_lap_on", HTTP_GET, [](AsyncWebServerRequest *request)
-              {  
-    digitalWrite(RELAY, HIGH);
-    request->send(200); });
+  serwer.on("/scripts/UI/title.js", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/scripts/UI/title.js"); });
 
-    serwer.on("/relay_lap_off", HTTP_GET, [](AsyncWebServerRequest *request)
-              {  
-    digitalWrite(RELAY, LOW);
-    request->send(200); });
+  //        <<-------- styles -------->>
+  serwer.on("/styles/shared/html-tags.css", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/styles/shared/html-tags.css"); });
 
-    serwer.on("/relay_andr_on", HTTP_GET, [](AsyncWebServerRequest *request)
-              {  
-    digitalWrite(RELAY_2, HIGH);
-    request->send(200); });
+  serwer.on("/styles/shared/leyout.css", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/styles/shared/leyout.css"); });
 
-    serwer.on("/relay_andr_off", HTTP_GET, [](AsyncWebServerRequest *request)
-              {  
-    digitalWrite(RELAY_2, LOW);
-    request->send(200); });
+  serwer.on("/styles/shared/elements.css", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(LittleFS, "/styles/shared/elements.css"); });
 
-    //--------------------------------        UDP       --------------------------------//
+  //        <<-------- control -------->>
+  serwer.on("/socket1-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket1, HIGH);
+              sendJSONResponse(request); });
 
-    serwer.on("/lap_cooler_on", HTTP_GET, [](AsyncWebServerRequest *request)
-              { 
-    request->send(200);
-     udp.broadcastTo("lap_cooler_on", 1237); });
+  serwer.on("/socket1-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket1, LOW);
+              sendJSONResponse(request); });
 
-    if (udp.listenMulticast(IPAddress(239, 1, 2, 3), 1237))
-    {
-      /*         Serial.print("UDP Listening on IP: ");
-              Serial.println(WiFi.localIP()); */
+  serwer.on("/socket2-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket2, HIGH);
+              sendJSONResponse(request); });
 
-      udp.onPacket([](AsyncUDPPacket packet)
-                   {
-                     /*             Serial.print("UDP Packet Type: ");
-                                 Serial.print(packet.isBroadcast()?"Broadcast":packet.isMulticast()?"Multicast":"Unicast");
-                                 Serial.print(", From: ");
-                                 Serial.print(packet.remoteIP());
-                                 Serial.print(":");
-                                 Serial.print(packet.remotePort());
-                                 Serial.print(", To: ");
-                                 Serial.print(packet.localIP());
-                                 Serial.print(":");
-                                 Serial.print(packet.localPort());
-                                 Serial.print(", Length: ");
-                                 Serial.print(packet.length());
-                                 Serial.print(", Data: "); */
+  serwer.on("/socket2-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket2, LOW);
+              sendJSONResponse(request); });
 
-                     /*             Serial.write(packet.data(), packet.length());
-                                 Serial.println();
-                                 //reply to the client
-                                 packet.printf("Got %u bytes of data", packet.length()); */ });
-      /*         //Send multicast
-              udp.print("Hello!"); */
-    }
-  }
+  serwer.on("/socket3-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket3, HIGH);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket3-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket3, LOW);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket4-on", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket4, HIGH);
+              sendJSONResponse(request); });
+
+  serwer.on("/socket4-off", HTTP_GET, [](AsyncWebServerRequest *request)
+            {   
+              digitalWrite(socket4, LOW);
+              sendJSONResponse(request); });
 
   serwer.begin();
 }
 
 void loop()
 {
-  //--------------------------------        UDP       --------------------------------//
-
-  paczkaDanych = UDP.parsePacket();
-  if (paczkaDanych)
-  {
-    int len = UDP.read(dataPackage, 255);
-    if (len > 0)
-      dataPackage[len] = 0;
-    battery_percentage = dataPackage;
-    Serial.print(battery_percentage);
-    Serial.print(" ");
-    battery_check();
-  }
 }

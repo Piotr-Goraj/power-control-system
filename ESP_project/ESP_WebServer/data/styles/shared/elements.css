@@ -1,0 +1,18 @@
+.content-wrapper .content-title {
+  font-size: 3rem;
+  color: #dedede;
+  margin: 1rem auto;
+}
+.content-wrapper .btns-switch .switch-choice {
+  width: 48%;
+  min-height: 3.6rem;
+  margin: 1rem 1%;
+  padding: 0 0 1rem 0;
+  background: #3c0fa3;
+  font-size: 2.5rem;
+  border-radius: 5px;
+}
+.content-wrapper .btns-switch .switch-choice:hover, .content-wrapper .btns-switch .switch-choice:active {
+  background: #1d074f;
+  cursor: pointer;
+}
