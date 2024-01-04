@@ -31,5 +31,33 @@ Piotr Goraj
 
 # Functionalities
 
+## Main page
 
+The main page display qoutes. I implemented a function that randomly selects one of the quotes save in the json file. 
+
+There is no slide-out menu in the desctop version, but in the mobile version I removed the date and time display, as you can see in the photos below.
+
+<p align="center">
+   <img src="/README_files/mobile-main.png" alt="Mobile main" width="300" height="600">
+   <img src="/README_files/mobile-menu.png" alt="Signin form" width="300" height="600">
+   <img src="/README_files/desctop-main.png" alt="Login form" width="1213" height="600">
+ </p>
+
+## Power & cooling
+
+Power page and cooling page function similarly. The user can choose the socket into which he plugs the electrical device, and uses the buttons to set whether it should be turned on or off. In the original version, I added additional options such as min and max battery level and a sleep timer. In the future, I will also add UI to the functions I have already written in previous version.
+
+<p align="center">
+   <img src="/README_files/mobile-power.png" alt="Mobile main" width="300" height="600">
+   <img src="/README_files/desctop-power.png" alt="Login form" width="1213" height="600">
+   <img src="/README_files/desctop-cooling.png" alt="Login form" width="1213" height="600">
+ </p>
+
+## Analysys
+
+## Settings
+
+## Phisical project
+
+The photo below shows an example of the project for its original version.
 ![Completed project.](/assets/images/1.jpeg)
